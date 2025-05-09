@@ -29,8 +29,53 @@ Este proyecto simula las llegadas de huéspedes a un hotel, permitiendo analizar
 
 - `src/`: Contiene el código fuente del proyecto
   - `main.py`: Punto de entrada de la aplicación
+  - `config/`: Configuración del proyecto
+    - `config.py`: Archivo de configuración principal
+  - `eventos/`: Módulo para manejar eventos de la simulación
+    - `llegada_huesped.py`: Evento de llegada de huéspedes
+  - `fdp/`: Funciones de distribución de probabilidad
+    - `duracion_estadia.py`: Distribución para la duración de estadías
+    - `intervalo_entre_arribos.py`: Intervalos entre arribos
+    - `num_bebes.py`: Número de bebés por reserva
+    - `num_ninios.py`: Número de niños por reserva
+    - `tipo_habitacion.py`: Selección de tipo de habitación
+  - `utils/`: Utilidades para cálculos y gráficos
+    - `calculos.py`: Funciones de cálculo
+    - `disponibilidades.py`: Gestión de disponibilidades
+    - `graficos.py`: Generación de gráficos
+    - `reserva.py`: Manejo de reservas
 - `resultados/`: Directorio donde se almacenan los resultados
+  - `hotel_simulation_results.png`: Gráfico de resultados de la simulación
 - `.devcontainer/`: Configuración del contenedor de desarrollo
+
+## ⚙️ Configuración del Proyecto
+
+El archivo `src/config/config.py` contiene la configuración principal del proyecto. Está compuesto por los siguientes elementos:
+
+- **TIPOS_HABITACIONES**: Define los tipos de habitaciones disponibles en el hotel y su cantidad.
+  ```python
+  TIPOS_HABITACIONES = {
+      "simple": {"cantidad": 10},
+      "doble": {"cantidad": 15},
+      "suite": {"cantidad": 5}
+  }
+  ```
+
+- **RECURSOS_ADICIONALES**: Especifica los recursos adicionales disponibles, como cunas y camas extra.
+  ```python
+  RECURSOS_ADICIONALES = {
+      "cunas": 8,
+      "camas_extra": 10
+  }
+  ```
+
+- **PARAMETROS_SIMULACION**: Contiene los parámetros generales de la simulación, como la duración y la semilla para reproducibilidad.
+  ```python
+  PARAMETROS_SIMULACION = {
+      "duracion_simulacion": 365,  # días
+      "seed": 42
+  }
+  ```
 
 ## 📊 Resultados de la Simulación
 Los resultados de la simulación se almacenan en el directorio `resultados/`. Se generan reportes y gráficos que permiten analizar la utilización de recursos y el desempeño del hotel.
