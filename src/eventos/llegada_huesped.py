@@ -1,10 +1,13 @@
+from src.fdp import HotelFDP
+from src.utils import HotelUtils
+
 def llegada_huesped(self):
         """Tratar un evento de llegada de huésped"""
         # Generar parámetros del huésped
-        duracion_estadia = self.generar_duracion_estadia()
-        tipo_habitacion = self.generar_tipo_habitacion()
-        num_ninios = self.generar_num_ninios()
-        num_bebes = self.generar_num_bebes()
+        duracion_estadia = HotelFDP.generar_duracion_estadia()
+        tipo_habitacion = HotelFDP.generar_tipo_habitacion()
+        num_ninios = HotelFDP.generar_num_ninios()
+        num_bebes = HotelFDP.generar_num_bebes()
 
         self.total_arribos += 1
 
@@ -12,29 +15,29 @@ def llegada_huesped(self):
         fecha_fin = self.tiempo_actual + duracion_estadia
         
         # Intentar encontrar una habitación disponible
-        id_habitacion = self.encontrar_habitacion_disponible(tipo_habitacion, self.tiempo_actual)
+        id_habitacion = HotelUtils.encontrar_habitacion_disponible(tipo_habitacion, self.tiempo_actual)
 
         if id_habitacion is not None:
             # Chequear si las cunas necesarias están disponibles
             cunas_necesarias = min(num_bebes, 2)
             id_cunas = None
             if cunas_necesarias > 0:
-                id_cunas = self.encontrar_cunas_disponibles(cunas_necesarias, self.tiempo_actual)
+                id_cunas = HotelUtils.encontrar_cunas_disponibles(cunas_necesarias, self.tiempo_actual)
 
             # Chequear si las camas necesarias están disponibles
             camas_necesarias = min(num_ninios, 2) 
             id_camas = None
             if camas_necesarias > 0:
-                id_camas = self.encontrar_camas_disponibles(camas_necesarias, self.tiempo_actual)
+                id_camas = HotelUtils.encontrar_camas_disponibles(camas_necesarias, self.tiempo_actual)
 
             # Allocate room
             if tipo_habitacion == "simple":
-                self.asignar_reserva(self.habitaciones_simples[id_habitacion], fecha_fin)
+                HotelUtils.asignar_reserva(self.habitaciones_simples[id_habitacion], fecha_fin)
             elif tipo_habitacion == "double":
-                self.asignar_reserva(self.habitaciones_dobles[id_habitacion], fecha_fin)
+                HotelUtils.asignar_reserva(self.habitaciones_dobles[id_habitacion], fecha_fin)
             elif tipo_habitacion == "suite":
-                self.asignar_reserva(self.habitaciones_suites[id_habitacion], fecha_fin)
-            
+                HotelUtils.asignar_reserva(self.habitaciones_suites[id_habitacion], fecha_fin)
+
             # Si todos los recursos están disponibles
             # (camas y cunas) se asignan a la habitación
             # Si no hay cunas o camas necesarias, se asignan
