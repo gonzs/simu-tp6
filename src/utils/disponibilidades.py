@@ -1,28 +1,28 @@
-def encontrar_habitacion_disponible(self, tipo_habitacion, fecha_inicio):
-        """Encontrar una habitación disponible del tipo especificado para el período de tiempo dado.
-        Devuelve la habitación comprometida hasta la menor fecha de compromiso."""
-        habitaciones = []
-        if tipo_habitacion == "simple":
-            habitaciones = self.habitaciones_simples
-        elif tipo_habitacion == "doble":
-            habitaciones = self.habitaciones_dobles
-        elif tipo_habitacion == "suite":
-            habitaciones = self.habitaciones_suites
+def encontrar_habitacion_disponible(tipo_habitacion, fecha_inicio, habitaciones_simples, habitaciones_dobles, habitaciones_suites):
+    """Encontrar una habitación disponible del tipo especificado para el período de tiempo dado.
+    Devuelve la habitación comprometida hasta la menor fecha de compromiso."""
+    habitaciones = []
+    if tipo_habitacion == "simple":
+        habitaciones = habitaciones_simples
+    elif tipo_habitacion == "doble":
+        habitaciones = habitaciones_dobles
+    elif tipo_habitacion == "suite":
+        habitaciones = habitaciones_suites
 
-        # Ordenar las habitaciones por la fecha de compromiso
-        habitaciones_disponibles = [
-            (i, habitacion["comprometida_hasta"]) for i, habitacion in enumerate(habitaciones)
-            if habitacion["comprometida_hasta"] <= fecha_inicio
-        ]
-        habitaciones_disponibles.sort(key=lambda x: x[1])
+    # Ordenar las habitaciones por la fecha de compromiso
+    habitaciones_disponibles = [
+        (i, habitacion["comprometida_hasta"]) for i, habitacion in enumerate(habitaciones)
+        if habitacion["comprometida_hasta"] <= fecha_inicio
+    ]
+    habitaciones_disponibles.sort(key=lambda x: x[1])
 
-        # Devolver la primera habitación disponible si existe
-        return habitaciones_disponibles[0][0] if habitaciones_disponibles else None
+    # Devolver la primera habitación disponible si existe
+    return habitaciones_disponibles[0][0] if habitaciones_disponibles else None
 
-def encontrar_cunas_disponibles(self, numero_solicitado, fecha_inicio):
+def encontrar_cunas_disponibles(cunas,numero_solicitado, fecha_inicio):
     """Encontrar las cunas disponibles para el período de tiempo dado."""
     cunas_disponibles = []
-    for i, cuna in enumerate(self.cunas):
+    for i, cuna in enumerate(cunas):
         if cuna["comprometida_hasta"] <= fecha_inicio:
             cunas_disponibles.append((i, cuna["comprometida_hasta"]))
 
@@ -34,10 +34,10 @@ def encontrar_cunas_disponibles(self, numero_solicitado, fecha_inicio):
 
     return cunas_seleccionadas if len(cunas_seleccionadas) == numero_solicitado else None
 
-def encontrar_camas_disponibles(self, numero_solicitado, fecha_inicio):
+def encontrar_camas_disponibles(camas_simples, numero_solicitado, fecha_inicio):
     """Encontrar camas disponibles para el período de tiempo dado"""
     camas_disponibles = []
-    for i, cama in enumerate(self.camas_simples):
+    for i, cama in enumerate(camas_simples):
         if cama["comprometida_hasta"] <= fecha_inicio:
             camas_disponibles.append((i, cama["comprometida_hasta"]))
 

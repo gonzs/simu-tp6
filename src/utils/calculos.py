@@ -1,14 +1,14 @@
-def imprimir_resultados(self):
+def imprimir_resultados(total_arribos, reservas_rechazadas, bonificaciones, total_huespedes, habitaciones_simples, habitaciones_dobles, habitaciones_suites, calcular_pto):
     """Imprimir resultados de la simulación"""
     print("\n===== RESULTADOS DE LA SIMULACIÓN =====")
-    print(f"Total de Arribos de Huéspedes: {self.total_arribos}")
-    print(f"Porcentaje de Reservas Rechazadas: {self.reservas_rechazadas/self.total_arribos*100:.2f}%")
-    print(f"Porcentaje de Bonificaciones: {self.bonificaciones/self.total_huespedes*100:.2f}%")
+    print(f"Total de Arribos de Huéspedes: {total_arribos}")
+    print(f"Porcentaje de Reservas Rechazadas: {reservas_rechazadas/total_arribos*100:.2f}%")
+    print(f"Porcentaje de Bonificaciones: {bonificaciones/total_huespedes*100:.2f}%")
 
     # Calcular Porcentaje de tiempo ocioso para cada tipo de habitación
-    pto_simples = self.calcular_pto(self.habitaciones_simples)
-    pto_dobles = self.calcular_pto(self.habitaciones_dobles)
-    pto_suites = self.calcular_pto(self.habitaciones_suites)
+    pto_simples = calcular_pto(habitaciones_simples)
+    pto_dobles = calcular_pto(habitaciones_dobles)
+    pto_suites = calcular_pto(habitaciones_suites)
 
     print("\n===== Utilización de los Recursos =====")
     print(f"Habitaciones Simples: {pto_simples['porcentaje_ocioso']:.2f}% ociosidad")
