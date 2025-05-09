@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import random
 
-def graficar_resultados(self):
+def graficar_resultados(tiempo_simulacion, habitaciones_simples, habitaciones_dobles, habitaciones_suites, total_arribos, reservas_rechazadas, total_huespedes, bonificaciones, calcular_pto):
     """Graficar resultados de la simulación"""
     # Crear figura y subplots
     fig, axs = plt.subplots(2, 2, figsize=(15, 10))
@@ -9,9 +9,9 @@ def graficar_resultados(self):
     # Graficar utilización de recursos (PTO)
     tipos_recursos = ['Simples', 'Dobles', 'Suites']
     pto_valores = [
-        self.calcular_pto(self.habitaciones_simples)["porcentaje_ocioso"],
-        self.calcular_pto(self.habitaciones_dobles)["porcentaje_ocioso"],
-        self.calcular_pto(self.habitaciones_suites)["porcentaje_ocioso"]
+        calcular_pto(tiempo_simulacion, habitaciones_simples)["porcentaje_ocioso"],
+        calcular_pto(tiempo_simulacion, habitaciones_dobles)["porcentaje_ocioso"],
+        calcular_pto(tiempo_simulacion, habitaciones_suites)["porcentaje_ocioso"]
     ]
     axs[0, 1].bar(tipos_recursos, pto_valores, color=['blue', 'green', 'red'])
     axs[0, 1].set_ylabel('Porcentaje de Tiempo Ocioso (%)')
@@ -19,7 +19,7 @@ def graficar_resultados(self):
     axs[0, 1].grid(axis='y')
 
     # Graficar evolución de arribos
-    tiempos = range(0, self.tiempo_simulacion, 24)  # Asumimos datos diarios
+    tiempos = range(0, tiempo_simulacion, 24)  # Asumimos datos diarios
     arribos_diarios = [random.randint(0, 10) for _ in tiempos]  # Simulación de datos
     axs[1, 0].plot(tiempos, arribos_diarios, label='Arribos Diarios', color='purple')
     axs[1, 0].set_xlabel('Tiempo (horas)')
@@ -30,8 +30,8 @@ def graficar_resultados(self):
 
     # Graficar porcentaje de reservas rechazadas y bonificaciones
     axs[1, 1].bar(['Rechazadas', 'Bonificadas'], [
-        (self.reservas_rechazadas / self.total_arribos) * 100,
-        (self.bonificaciones / self.total_huespedes) * 100
+        (reservas_rechazadas / total_arribos) * 100 if total_arribos > 0 else 0,
+        (bonificaciones / total_huespedes) * 100 if total_huespedes > 0 else 0
     ], color=['orange', 'cyan'])
     axs[1, 1].set_ylabel('Porcentaje (%)')
     axs[1, 1].set_title('Reservas Rechazadas y Bonificadas')
