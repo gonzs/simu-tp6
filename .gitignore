@@ -1,0 +1,6 @@
+# Ignorar archivos y directorios específicos
+*.pyc
+*.pyo
+__pycache__/
+data/
+resultados/
