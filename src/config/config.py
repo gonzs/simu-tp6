@@ -22,4 +22,5 @@ RECURSOS_ADICIONALES = {
 # Parámetros de simulación
 PARAMETROS_SIMULACION = {
     "duracion_simulacion": 365,  # días
+    # "seed": 42  # Para reproducir resultados
 }
