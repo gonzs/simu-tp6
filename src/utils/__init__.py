@@ -9,3 +9,4 @@ class HotelUtils:
     encontrar_camas_disponibles = staticmethod(encontrar_camas_disponibles)
     asignar_reserva = staticmethod(asignar_reserva)
     imprimir_resultados = staticmethod(imprimir_resultados)
+    graficar_resultados = staticmethod(graficar_resultados)
