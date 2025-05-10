@@ -34,10 +34,13 @@ def llegada_huesped(self):
 
             # Allocate room
             if tipo_habitacion == "simple":
+                print('Se solicito una simple')
                 HotelUtils.asignar_reserva(self.habitaciones_simples[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
-            elif tipo_habitacion == "double":
+            elif tipo_habitacion == "doble":
+                print('Se solicito una doble')
                 HotelUtils.asignar_reserva(self.habitaciones_dobles[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
             elif tipo_habitacion == "suite":
+                print('Se solicito una suite')
                 HotelUtils.asignar_reserva(self.habitaciones_suites[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
 
             # Si todos los recursos están disponibles

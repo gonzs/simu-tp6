@@ -4,7 +4,8 @@ from src.eventos import HotelEventos
 from src.utils import HotelUtils
 from src.fdp import HotelFDP
 from src.utils.calculos import calcular_pto
-
+import random
+import numpy as np
 
 class HotelSimulation:
     def __init__(self,
@@ -40,9 +41,9 @@ class HotelSimulation:
         """
         
         # # Set random seed 
-        # if seed is not None:
-        #     np.random.seed(seed)
-        #     random.seed(seed)
+        if seed is not None:
+            np.random.seed(seed)
+            random.seed(seed)
         
         # Configuración del hotel
         self.habitaciones_simples = habitaciones_simples    # HS

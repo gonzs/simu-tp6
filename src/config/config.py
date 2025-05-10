@@ -3,24 +3,24 @@
 # Parámetros de tipos de habitaciones
 TIPOS_HABITACIONES = {
     "simple": {
-        "cantidad": 10,
+        "cantidad": 15,
     },
     "doble": {
-        "cantidad": 15
+        "cantidad": 20,
     },
     "suite": {
-        "cantidad": 5
+        "cantidad": 10
     }
 }
 
 # Límites de recursos adicionales
 RECURSOS_ADICIONALES = {
-    "cunas": 8,
-    "camas_extra": 10
+    "cunas": 2,
+    "camas_extra": 3
 }
 
 # Parámetros de simulación
 PARAMETROS_SIMULACION = {
     "duracion_simulacion": 365,  # días
-    # "seed": 42  # Para reproducir resultados
+    "seed": 10  # Para reproducir resultados
 }
