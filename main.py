@@ -109,7 +109,9 @@ class HotelSimulation:
             guardar_csv=True,
             rechazos_simple=self.reservas_rechazadas_simples,
             rechazos_doble=self.reservas_rechazadas_dobles,
-            rechazos_suite=self.reservas_rechazadas_suites
+            rechazos_suite=self.reservas_rechazadas_suites,
+            camas_simples=self.camas_simples,
+            cunas=self.cunas
         )
     
 
