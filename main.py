@@ -119,7 +119,10 @@ class HotelSimulation:
             self.habitaciones_dobles,
             self.habitaciones_suites,
             calcular_pto,
-            self.tiempo_simulacion
+            self.tiempo_simulacion,
+            guardar_csv=True,
+            camas_simples=self.camas_simples,
+            cunas=self.cunas
         )
     
 
