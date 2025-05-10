@@ -41,10 +41,19 @@ class HotelSimulation:
         """
         
         # # Set random seed 
-        if seed is not None:
-            np.random.seed(seed)
-            random.seed(seed)
+        #if seed is not None:
+        #    np.random.seed(seed)
+        #    random.seed(seed)
         
+        #Si no hay semilla fija, genero una al azar, pero la guardo para reproducir el resultado
+        if seed is None:
+            seed = random.randint(0, 2**32 - 1)
+            print(f"Seed generada aleatoriamente: {seed}")
+        else:
+            print(f"Seed fija usada: {seed}")
+        np.random.seed(seed)
+        random.seed(seed)
+
         # Configuración del hotel
         self.habitaciones_simples = habitaciones_simples    # HS
         self.habitaciones_dobles = habitaciones_dobles      # HD
@@ -66,6 +75,10 @@ class HotelSimulation:
         self.total_arribos = 0
         self.total_huespedes = 0
         self.reservas_rechazadas = 0
+        self.rechazos_simple= 0
+        self.rechazos_doble = 0
+        self.rechazos_suite = 0
+        self.rechazos_adicionales = 0
         self.bonificaciones = 0
         
         # Inicializar el primer evento de llegada
@@ -96,6 +109,10 @@ class HotelSimulation:
         HotelUtils.imprimir_resultados(
             self.total_arribos,
             self.reservas_rechazadas,
+            self.rechazos_adicionales,
+            self.rechazos_suite,
+            self.rechazos_simple,
+            self.rechazos_doble,
             self.bonificaciones,
             self.total_huespedes,
             self.habitaciones_simples,
@@ -114,8 +131,8 @@ if __name__ == "__main__":
         "habitaciones_suites": TIPOS_HABITACIONES["suite"]["cantidad"],
         "cunas": RECURSOS_ADICIONALES["cunas"],
         "camas_simples": RECURSOS_ADICIONALES["camas_extra"],
-        "dias_simulacion": PARAMETROS_SIMULACION["duracion_simulacion"],
-        "seed": PARAMETROS_SIMULACION.get("seed", None)
+        "dias_simulacion": PARAMETROS_SIMULACION["duracion_simulacion"]#,
+        #"seed": PARAMETROS_SIMULACION.get("seed", None)
     }
     
     # Crear instancia de la simulación
@@ -129,6 +146,10 @@ if __name__ == "__main__":
         sim.habitaciones_suites,
         sim.total_arribos,
         sim.reservas_rechazadas,
+        sim.rechazos_suite,
+        sim.rechazos_doble,
+        sim.rechazos_simple,
+        sim.rechazos_adicionales,
         sim.total_huespedes,
         sim.bonificaciones,
         calcular_pto

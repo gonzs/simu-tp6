@@ -1,10 +1,15 @@
-def imprimir_resultados(total_arribos, reservas_rechazadas, bonificaciones, total_huespedes, habitaciones_simples, habitaciones_dobles, habitaciones_suites, calcular_pto, tiempo_simulacion):
+def imprimir_resultados(total_arribos, reservas_rechazadas, rechazos_adicionales,rechazos_suite,rechazos_simple,rechazos_doble, bonificaciones, total_huespedes, habitaciones_simples, habitaciones_dobles, habitaciones_suites, calcular_pto, tiempo_simulacion):
     """Imprimir resultados de la simulación"""
     print("\n===== RESULTADOS DE LA SIMULACIÓN =====")
     print(f"Total de Arribos de Huéspedes: {total_arribos}")
     print(f"Porcentaje de Reservas Rechazadas: {reservas_rechazadas/total_arribos*100:.2f}%")
-    
-    porcentaje_bonificaciones = (bonificaciones / total_huespedes * 100) if total_huespedes > 0 else 0
+    print(f"De las cuales:")
+    print(f"Reservas Rechazadas por Habitacion Suite: {rechazos_suite/reservas_rechazadas*100:.2f}%")
+    print(f"Reservas Rechazadas por Habitacion Doble: {rechazos_doble/reservas_rechazadas*100:.2f}%")
+    print(f"Reservas Rechazadas por Habitacion Simple: {rechazos_simple/reservas_rechazadas*100:.2f}%")
+    print(f"Reservas Rechazadas por falta de cunas o camas simples: {rechazos_adicionales/reservas_rechazadas*100:.2f}%")
+
+    porcentaje_bonificaciones = (bonificaciones / total_arribos * 100) if total_huespedes > 0 else 0
     print(f"Porcentaje de Bonificaciones: {porcentaje_bonificaciones:.2f}%")
 
     # Calcular Porcentaje de tiempo ocioso para cada tipo de habitación

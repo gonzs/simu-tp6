@@ -1,5 +1,6 @@
 from src.fdp import HotelFDP
 from src.utils import HotelUtils
+import numpy as np
 
 def llegada_huesped(self):
         """Tratar un evento de llegada de huésped"""
@@ -34,11 +35,11 @@ def llegada_huesped(self):
 
             # Allocate room
             if tipo_habitacion == "simple":
-                HotelUtils.asignar_reserva(self.habitaciones_simples[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
+                self.total_huespedes = HotelUtils.asignar_reserva(self.habitaciones_simples[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
             elif tipo_habitacion == "doble":
-                 HotelUtils.asignar_reserva(self.habitaciones_dobles[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
+                self.total_huespedes = HotelUtils.asignar_reserva(self.habitaciones_dobles[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
             elif tipo_habitacion == "suite":
-                HotelUtils.asignar_reserva(self.habitaciones_suites[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
+                self.total_huespedes = HotelUtils.asignar_reserva(self.habitaciones_suites[id_habitacion], fecha_fin, self.tiempo_actual, self.total_huespedes)
 
             # Si todos los recursos están disponibles
             # (camas y cunas) se asignan a la habitación
@@ -59,9 +60,22 @@ def llegada_huesped(self):
             else:
                 # Si no estan disponibles todos los recursos adicionales
                 # se aplica una bonificación
-                self.bonificaciones += 1
+                probs = [0.5, 0.5]
+                if(np.random.choice(["bonificacion", "rechazo"], p=probs)=="rechazo"):
+                    self.rechazos_adicionales +=1
+                    self.reservas_rechazadas +=1
+                    self.total_huespedes = max(self.total_huespedes,0)            
+                else :
+                    self.bonificaciones +=1
+                    return True
                 return False
         else:
             # Si no hay habitación disponible, se rechaza la reserva
+            if tipo_habitacion == "simple" :
+                self.rechazos_simple += 1
+            elif tipo_habitacion == "doble" :
+                self.rechazos_doble +=1
+            elif tipo_habitacion == "suite" :
+                self.rechazos_suite +=1    
             self.reservas_rechazadas += 1
             return False
