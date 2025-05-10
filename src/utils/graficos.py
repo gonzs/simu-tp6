@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import random
 
-def graficar_resultados(tiempo_simulacion, habitaciones_simples, habitaciones_dobles, habitaciones_suites, total_arribos, reservas_rechazadas, total_huespedes, bonificaciones, calcular_pto):
+def graficar_resultados(tiempo_simulacion, habitaciones_simples, habitaciones_dobles, habitaciones_suites, total_arribos, reservas_rechazadas,rechazos_suite,rechazos_doble,rechazos_simple,rechazos_adicionales, total_huespedes, bonificaciones, calcular_pto):
     """Graficar resultados de la simulación"""
     # Crear figura y subplots
     fig, axs = plt.subplots(2, 2, figsize=(15, 10))
@@ -36,6 +36,17 @@ def graficar_resultados(tiempo_simulacion, habitaciones_simples, habitaciones_do
     axs[1, 1].set_ylabel('Porcentaje (%)')
     axs[1, 1].set_title('Reservas Rechazadas y Bonificadas')
     axs[1, 1].grid(axis='y')
+
+    # Graficar porcentaje de rechazos por causa del mismo
+    axs[0,0].bar(['Suite','Doble','Simple','Adicionales'],[
+        (rechazos_suite / reservas_rechazadas) * 100 if reservas_rechazadas > 0 else 0,
+        (rechazos_doble / reservas_rechazadas) * 100 if reservas_rechazadas > 0 else 0,
+        (rechazos_simple / reservas_rechazadas) * 100 if reservas_rechazadas > 0 else 0,
+        (rechazos_adicionales / reservas_rechazadas) * 100 if reservas_rechazadas > 0 else 0
+    ], color =['orange','cyan','green','red'])
+    axs[0, 0].set_ylabel('Porcentaje (%)')
+    axs[0, 0].set_title('Reservas Rechazadas segun causa')
+    axs[0, 0].grid(axis='y')
 
     # Ajustar diseño y guardar gráfico
     plt.tight_layout()

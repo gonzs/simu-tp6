@@ -9,14 +9,14 @@ TIPOS_HABITACIONES = {
         "cantidad": 20,
     },
     "suite": {
-        "cantidad": 10
+        "cantidad": 15
     }
 }
 
 # Límites de recursos adicionales
 RECURSOS_ADICIONALES = {
-    "cunas": 2,
-    "camas_extra": 3
+    "cunas": 5,
+    "camas_extra": 10
 }
 
 # Parámetros de simulación
