@@ -22,6 +22,8 @@ def imprimir_resultados(total_arribos, reservas_rechazadas, rechazos_adicionales
     print(f"Habitaciones Simples: {pto_simples['porcentaje_ocioso']:.2f}% ociosidad")
     print(f"Habitaciones Dobles: {pto_dobles['porcentaje_ocioso']:.2f}% ociosidad")
     print(f"Suites: {pto_suites['porcentaje_ocioso']:.2f}% ociosidad")
+    
+    # Guardar resultados en archivo CSV
     if guardar_csv:
         print("\n===== Guardando resultados en archivo =====")
         guardar_resultados(
@@ -54,6 +56,7 @@ def calcular_pto(tiempo_simulacion, recursos):
     return {
         "porcentaje_ocioso": (tiempo_ocioso * 100) / tiempo_total if tiempo_total > 0 else 0,
     }
+    
 def guardar_resultados(nombre_archivo, habitaciones_suites, habitaciones_dobles, 
                       habitaciones_simples, cunas, camas_simples, total_arribos, 
                       porcentaje_rechazos, rechazos_suite, rechazos_doble, rechazos_simple,

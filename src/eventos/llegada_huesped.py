@@ -77,5 +77,5 @@ def llegada_huesped(self):
                 self.rechazos_doble +=1
             elif tipo_habitacion == "suite" :
                 self.rechazos_suite +=1    
-            self.reservas_rechazadas += 1
+            self.reservas_rechazadas += 1      
             return False
