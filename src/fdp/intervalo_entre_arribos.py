@@ -15,6 +15,5 @@ def generar_intervalo_entre_arribos():
     R = np.random.rand()
 
     # Generar con método de inversa (usando la ppf de scipy)
-    ia = gamma.ppf(R, a, loc=loc, scale=scale)
-    print(f"Intervalo entre arribos: {ia:.2f} horas")
-    return ia
+    return gamma.ppf(R, a, loc=loc, scale=scale)
+   
