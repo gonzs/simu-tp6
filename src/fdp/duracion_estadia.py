@@ -11,7 +11,7 @@ def generar_duracion_estadia():
     scale= 0.9263278639266157
     R = np.random.rand()
 
-    # Generar IA con método de inversa (usando la ppf de scipy)
+    # Generar método de inversa (usando la ppf de scipy)
     ia_inversa = dweibull.ppf(R, c=c, loc=loc, scale=scale).astype(int)
 
     # Convertir de días a horas y asegurar entre 24 (1 día) y 192 (8 días)
