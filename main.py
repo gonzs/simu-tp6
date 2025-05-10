@@ -66,6 +66,9 @@ class HotelSimulation:
         self.total_arribos = 0
         self.total_huespedes = 0
         self.reservas_rechazadas = 0
+        self.reservas_rechazadas_simples = 0  # Rechazos por habitación simple
+        self.reservas_rechazadas_dobles = 0   # Rechazos por habitación doble
+        self.reservas_rechazadas_suites = 0   # Rechazos por habitación suite
         self.bonificaciones = 0
         
         # Inicializar el primer evento de llegada
@@ -102,7 +105,11 @@ class HotelSimulation:
             self.habitaciones_dobles,
             self.habitaciones_suites,
             calcular_pto,
-            self.tiempo_simulacion
+            self.tiempo_simulacion,
+            guardar_csv=True,
+            rechazos_simple=self.reservas_rechazadas_simples,
+            rechazos_doble=self.reservas_rechazadas_dobles,
+            rechazos_suite=self.reservas_rechazadas_suites
         )
     
 

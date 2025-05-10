@@ -64,4 +64,13 @@ def llegada_huesped(self):
         else:
             # Si no hay habitación disponible, se rechaza la reserva
             self.reservas_rechazadas += 1
+            
+            # Registrar el tipo de habitación rechazada
+            if tipo_habitacion == "simple":
+                self.reservas_rechazadas_simples += 1
+            elif tipo_habitacion == "doble":
+                self.reservas_rechazadas_dobles += 1
+            elif tipo_habitacion == "suite":
+                self.reservas_rechazadas_suites += 1
+                
             return False
