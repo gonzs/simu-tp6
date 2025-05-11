@@ -46,6 +46,7 @@ Este proyecto simula las llegadas de huéspedes a un hotel, permitiendo analizar
     - `reserva.py`: Manejo de reservas
 - `resultados/`: Directorio donde se almacenan los resultados
   - `hotel_simulation_results.png`: Gráfico de resultados de la simulación
+  - `resultados_simulacion.csv`: Archivo CSV con resultados de múltiples simulaciones
 - `.devcontainer/`: Configuración del contenedor de desarrollo
 
 ## ⚙️ Configuración del Proyecto
@@ -79,3 +80,17 @@ El archivo `src/config/config.py` contiene la configuración principal del proye
 
 ## 📊 Resultados de la Simulación
 Los resultados de la simulación se almacenan en el directorio `resultados/`. Se generan reportes y gráficos que permiten analizar la utilización de recursos y el desempeño del hotel.
+
+### Archivo CSV de Resultados
+El archivo `resultados_simulacion.csv` almacena los resultados de todas las simulaciones ejecutadas, permitiendo comparar diferentes configuraciones y parámetros. Los resultados se guardan con el siguiente formato:
+
+- **Estructura**: Cada fila representa una ejecución de simulación distinta, mientras que las columnas contienen las variables y métricas.
+- **Variables almacenadas**:
+  - Fecha y hora de la simulación
+  - Variables de control (cantidad de habitaciones, cunas, camas adicionales)
+  - Total de arribos
+  - Porcentaje de rechazos (total y por tipo de habitación)
+  - Porcentaje de bonificaciones
+  - Porcentaje de tiempo ocioso de cada tipo de habitación
+  
+Este formato facilita el análisis y comparación de resultados en herramientas como Excel o programas de análisis estadístico.
