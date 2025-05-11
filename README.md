@@ -1,13 +1,13 @@
-# Simulación de Hotel (HotelSys)
+# Simulación de Hotel - *HotelSys*
 
 ## 📚 Descripción del Proyecto
 Este proyecto simula las llegadas de huéspedes a un hotel, permitiendo analizar la utilización de los diferentes tipos de habitaciones. Asi como tambien las reservas rechazadas y aquellas que por no cumplir con alguno de los requerimientos tuvo algun tipo de bonificacion. A través de eventos de llegada y salida de huéspedes, se evalúa la disponibilidad de habitaciones y recursos adicionales.
 
-# 📑 Índice de la Estructura del Proyecto
+## 📑 Índice de la Estructura del Proyecto
 
 Este documento presenta la estructura completa del proyecto de simulación de hotel, organizada jerárquicamente para facilitar la navegación y comprensión del código.
 
-## 📂 Estructura General
+### 📂 Estructura General
 
 ```
 simu-tp6/
@@ -67,38 +67,38 @@ simu-tp6/
         └── reserva.py           # Gestión de reservas
 ```
 
-## 🔍 Descripción de los Principales Componentes
+### 🔍 Descripción de los Principales Componentes
 
-### 📌 Código Fuente (`src/`)
+#### 📌 Código Fuente (`src/`)
 
-#### Configuración (`config/`)
+##### Configuración (`config/`)
 - `config.py`: Define parámetros de simulación como cantidad de habitaciones, recursos adicionales y duración.
 
-#### Eventos (`eventos/`)
+##### Eventos (`eventos/`)
 - `llegada_huesped.py`: Implementa la lógica para el arribo de huéspedes al hotel.
 
-#### Funciones de Distribución de Probabilidad (`fdp/`)
+##### Funciones de Distribución de Probabilidad (`fdp/`)
 - `duracion_estadia.py`: Genera la duración de estadía de los huéspedes usando distribución Weibull.
 - `intervalo_entre_arribos.py`: Calcula el tiempo entre llegadas sucesivas de huéspedes.
 - `num_bebes.py` y `num_ninios.py`: Generan la cantidad de bebés y niños por reserva.
 - `tipo_habitacion.py`: Determina el tipo de habitación solicitada por los huéspedes.
 
-#### Utilidades (`utils/`)
+##### Utilidades (`utils/`)
 - `calculos.py`: Contiene funciones para el cálculo de métricas y salida de resultados.
 - `disponibilidades.py`: Gestiona la disponibilidad de habitaciones y recursos.
 - `graficos.py`: Genera visualizaciones de los resultados de la simulación.
 - `reserva.py`: Maneja la lógica de reservas de habitaciones.
 
-### 📊 Resultados (`resultados/`)
+#### 📊 Resultados (`resultados/`)
 - `hotel_simulation_results.png`: Gráfico visual con los resultados de la simulación.
 - `resultados_simulacion.csv`: Registro de múltiples simulaciones para análisis comparativo.
 
-### 📚 Documentación (`docs/`)
+#### 📚 Documentación (`docs/`)
 - Diagramas de flujo que ilustran el funcionamiento del sistema.
 - Documentación sobre las funciones de distribución de probabilidad utilizadas.
 - Notebook con análisis exploratorio de datos.
 
-## 💡 Guía Rápida
+### 💡 Guía Rápida
 
 1. El punto de entrada es `main.py`
 2. La configuración principal está en `src/config/config.py`
