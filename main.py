@@ -82,7 +82,7 @@ class HotelSimulation:
         self.bonificaciones = 0
         
         # Inicializar el primer evento de llegada
-        self.tiempo_proxima_llegada = max(0, HotelFDP.generar_intervalo_entre_arribos())
+        self.tiempo_proxima_llegada = max(0, HotelFDP.generar_intervalo_entre_arribos(self.tiempo_actual))
         self.events = [("llegada", self.tiempo_proxima_llegada)]
 
     def correr_simulacion(self):
@@ -98,7 +98,7 @@ class HotelSimulation:
             hotel_eventos.llegada_huesped(self)
 
             # Programar la próxima llegada
-            self.tiempo_proxima_llegada = self.tiempo_actual + max(0, HotelFDP.generar_intervalo_entre_arribos())
+            self.tiempo_proxima_llegada = self.tiempo_actual + max(0, HotelFDP.generar_intervalo_entre_arribos(self.tiempo_actual))
 
             # Actualización del progreso cada semana simulada
             if int(self.tiempo_actual / 24) % 7 == 0:
