@@ -14,7 +14,7 @@ class HotelSimulation:
         habitaciones_suites=5,
         cunas=8,
         camas_simples=10,
-        dias_simulacion=365,
+        duracion_simulacion=365*24,
         seed=None):
         """
         Inicializar la simulación del hotel.
@@ -34,8 +34,8 @@ class HotelSimulation:
             Numero de cunas disponibles en el hotel
         camas_simples : int
             Numero de camas adicionales disponibles en el hotel
-        dias_simulacion : int
-            Numero de dias a simular
+        duracion_simulacion : int
+            Duración de la simulación en horas
         seed : int, optional
             Semilla aleatoria para reproducibilidad
         """
@@ -62,7 +62,7 @@ class HotelSimulation:
         self.camas_simples = camas_simples                  # SI
         
         # Parametros de la simulación
-        self.tiempo_simulacion = dias_simulacion * 24  # Convertir días a horas
+        self.tiempo_simulacion = duracion_simulacion
         self.tiempo_actual = 0  # Tiempo actual de la simulación
         
         # Inicializar habitaciones y recursos
@@ -131,7 +131,7 @@ if __name__ == "__main__":
         "habitaciones_suites": TIPOS_HABITACIONES["suite"]["cantidad"],
         "cunas": RECURSOS_ADICIONALES["cunas"],
         "camas_simples": RECURSOS_ADICIONALES["camas_extra"],
-        "dias_simulacion": PARAMETROS_SIMULACION["duracion_simulacion"]#,
+        "duracion_simulacion": PARAMETROS_SIMULACION["duracion_simulacion"]#,
         #"seed": PARAMETROS_SIMULACION.get("seed", None)
     }
     
