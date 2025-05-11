@@ -62,7 +62,7 @@ class HotelSimulation:
         self.camas_simples = camas_simples                  # SI
         
         # Parametros de la simulación
-        self.tiempo_simulacion = dias_simulacion  # Convertir días a horas
+        self.tiempo_simulacion = dias_simulacion * 24  # Convertir días a horas
         self.tiempo_actual = 0  # Tiempo actual de la simulación
         
         # Inicializar habitaciones y recursos
@@ -119,10 +119,7 @@ class HotelSimulation:
             self.habitaciones_dobles,
             self.habitaciones_suites,
             calcular_pto,
-            self.tiempo_simulacion,
-            guardar_csv=True,
-            camas_simples=self.camas_simples,
-            cunas=self.cunas
+            self.tiempo_simulacion
         )
     
 
