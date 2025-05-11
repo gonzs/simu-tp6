@@ -4,11 +4,16 @@ def imprimir_resultados(total_arribos, reservas_rechazadas, rechazos_adicionales
     print(f"Total de Arribos de Huéspedes: {total_arribos}")
     porcentaje_rechazos = (reservas_rechazadas/total_arribos*100) if total_arribos > 0 else 0
     print(f"Porcentaje de Reservas Rechazadas: {porcentaje_rechazos:.2f}%")
-    print(f"De las cuales:")
-    print(f"Reservas Rechazadas por Habitacion Suite: {rechazos_suite/reservas_rechazadas*100:.2f}%")
-    print(f"Reservas Rechazadas por Habitacion Doble: {rechazos_doble/reservas_rechazadas*100:.2f}%")
-    print(f"Reservas Rechazadas por Habitacion Simple: {rechazos_simple/reservas_rechazadas*100:.2f}%")
-    print(f"Reservas Rechazadas por falta de cunas o camas simples: {rechazos_adicionales/reservas_rechazadas*100:.2f}%")
+    
+    # Chequear si hay reservas rechazadas
+    if reservas_rechazadas > 0:
+        print(f"De las cuales:")
+        print(f"Reservas Rechazadas por Habitacion Suite: {rechazos_suite/reservas_rechazadas*100:.2f}%")
+        print(f"Reservas Rechazadas por Habitacion Doble: {rechazos_doble/reservas_rechazadas*100:.2f}%")
+        print(f"Reservas Rechazadas por Habitacion Simple: {rechazos_simple/reservas_rechazadas*100:.2f}%")
+        print(f"Reservas Rechazadas por falta de cunas o camas simples: {rechazos_adicionales/reservas_rechazadas*100:.2f}%")
+    else:
+        print("No se registraron reservas rechazadas.")
 
     porcentaje_bonificaciones = (bonificaciones / total_arribos * 100) if total_huespedes > 0 else 0
     print(f"Porcentaje de Bonificaciones: {porcentaje_bonificaciones:.2f}%")
@@ -31,8 +36,8 @@ def imprimir_resultados(total_arribos, reservas_rechazadas, rechazos_adicionales
             len(habitaciones_suites),  # cantidad de suites
             len(habitaciones_dobles),  # cantidad de habitaciones dobles
             len(habitaciones_simples), # cantidad de habitaciones simples
-            len(cunas),  # cantidad de cunas
-            len(camas_simples),  # cantidad de camas simples
+            len(cunas) if cunas is not None else 0,  # cantidad de cunas
+            len(camas_simples) if camas_simples is not None else 0,  # cantidad de camas simples
             total_arribos,
             porcentaje_rechazos,
             rechazos_suite,
