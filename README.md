@@ -11,60 +11,62 @@ Este documento presenta la estructura completa del proyecto de simulación de ho
 
 ```
 simu-tp6/
-├── main.py                      # Punto de entrada principal de la aplicación
-├── README.md                    # Documentación del proyecto
-├── requirements.txt             # Dependencias del proyecto
-├── Dockerfile                   # Configuración para contenedores Docker
+├── main.py                               # Punto de entrada principal de la aplicación
+├── README.md                             # Documentación del proyecto
+├── requirements.txt                      # Dependencias del proyecto
+├── Dockerfile                            # Configuración para contenedores Docker
 │
-├── dataset/                     # Datos para la simulación
-│   └── hotel_bookings.csv       # Dataset con información de reservas hoteleras
+├── dataset/                              # Datos para la simulación
+│   └── hotel_bookings.csv                # Dataset con información de reservas hoteleras
 │
-├── docs/                        # Documentación técnica
-│   ├── Doc Inicial TP6.docx     # Documento inicial del proyecto
+├── docs/                                 # Documentación técnica
+│   ├── Doc Inicial TP6.docx              # Documento inicial del proyecto
+│   ├── Simulacion_HotelSys - PAPER.docx  # Paper de presentación del proyecto
+│   ├── Resultados.xls                    # Resultados de las simulaciones realizadas con sus respectivas configuraciones
 │   │
-│   ├── Diagrama de Flujo/       # Diagramas de flujo del sistema
+│   ├── Diagrama de Flujo/                # Diagramas de flujo del sistema  
 │   │   ├── Flujograma_1.jpeg
 │   │   ├── Flujograma_2.jpeg
 │   │   ├── Flujograma_3.jpeg
 │   │   ├── Flujograma_4.jpeg
 │   │   └── Flujograma_5.jpeg
 │   │
-│   └── FDPS/                    # Documentación de funciones de distribución de probabilidad
+│   └── FDPS/                             # Documentación de funciones de distribución de probabilidad
 │       ├── FDPs.docx
 │       ├── Grafico Duracion_Estadia.png
 │       ├── Grafico Intervalo_Entre_Arribos.png
 │       ├── Probabilidad_Cantidad_Bebes.png
 │       ├── Probabilidad_Cantidad_Niños.png
 │       ├── Probabilidad_Tipo_Habitacion.png
-│       └── TP6.ipynb            # Notebook con análisis de datos
+│       └── TP6.ipynb                     # Notebook con análisis de datos
 │
-├── resultados/                  # Resultados generados por la simulación
-│   ├── hotel_simulation_results.png  # Gráfico con resultados de la simulación
-│   └── resultados_simulacion.csv     # Archivo CSV con resultados de múltiples simulaciones
+├── resultados/                           # Resultados generados por la simulación
+│   ├── hotel_simulation_results.png      # Gráfico con resultados de la simulación
+│   └── resultados_simulacion.csv         # Archivo CSV con resultados de múltiples simulaciones
 │
-└── src/                         # Código fuente del proyecto
-    ├── config/                  # Configuración de la simulación
+└── src/                                  # Código fuente del proyecto
+    ├── config/                           # Configuración de la simulación
     │   ├── __init__.py
-    │   └── config.py            # Parámetros de la simulación (tipos habitación, recursos, etc.)
+    │   └── config.py                     # Parámetros de la simulación (tipos habitación, recursos, etc.)
     │
-    ├── eventos/                 # Lógica de eventos de la simulación
+    ├── eventos/                          # Lógica de eventos de la simulación
     │   ├── __init__.py
-    │   └── llegada_huesped.py   # Manejo de llegadas de huéspedes
+    │   └── llegada_huesped.py            # Manejo de llegadas de huéspedes
     │
-    ├── fdp/                     # Funciones de distribución de probabilidad
+    ├── fdp/                              # Funciones de distribución de probabilidad
     │   ├── __init__.py
-    │   ├── duracion_estadia.py  # Generación de duración de estadía
-    │   ├── intervalo_entre_arribos.py  # Intervalos entre arribos de huéspedes
-    │   ├── num_bebes.py         # Generación de cantidad de bebés
-    │   ├── num_ninios.py        # Generación de cantidad de niños
-    │   └── tipo_habitacion.py   # Selección de tipo de habitación
+    │   ├── duracion_estadia.py           # Generación de duración de estadía
+    │   ├── intervalo_entre_arribos.py    # Intervalos entre arribos de huéspedes
+    │   ├── num_bebes.py                  # Generación de cantidad de bebés
+    │   ├── num_ninios.py                 # Generación de cantidad de niños
+    │   └── tipo_habitacion.py            # Selección de tipo de habitación
     │
-    └── utils/                   # Utilidades y herramientas
+    └── utils/                            # Utilidades y herramientas
         ├── __init__.py
-        ├── calculos.py          # Funciones de cálculo y resultados
-        ├── disponibilidades.py  # Gestión de disponibilidad de habitaciones
-        ├── graficos.py          # Generación de gráficos
-        └── reserva.py           # Gestión de reservas
+        ├── calculos.py                   # Funciones de cálculo y resultados
+        ├── disponibilidades.py           # Gestión de disponibilidad de habitaciones
+        ├── graficos.py                   # Generación de gráficos
+        └── reserva.py                    # Gestión de reservas
 ```
 
 ### 🔍 Descripción de los Principales Componentes
