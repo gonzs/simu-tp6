@@ -97,6 +97,8 @@ simu-tp6/
 - Diagramas de flujo que ilustran el funcionamiento del sistema.
 - Documentación sobre las funciones de distribución de probabilidad utilizadas.
 - Notebook con análisis exploratorio de datos.
+- Paper de presentación del proyecto.
+- Resultados de las simulaciones realizadas con sus respectivas configuraciones.
 
 ### 💡 Guía Rápida
 
